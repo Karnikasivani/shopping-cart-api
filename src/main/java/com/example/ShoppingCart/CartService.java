@@ -1,4 +1,10 @@
 package com.example.ShoppingCart;
 
-public class CartService {
+import java.util.List;
+
+public interface CartService {
+    CartItem addTocart(CartItemRequest cartItemRequest);
+    List<CartItem> getCartItems();
+    Double getCartTotal();
+    void deleteFromCart(Long id);
 }
