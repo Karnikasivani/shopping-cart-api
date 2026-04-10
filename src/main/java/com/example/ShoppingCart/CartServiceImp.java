@@ -16,7 +16,7 @@ public class CartServiceImp implements CartService{
 
     @Override
     public CartItem addTocart(CartItemRequest cartItemRequest) {
-        Product product = productRepository.findById(cartItemRequest.productId()).orElse(null);
+        Product product = productRepository.findById(cartItemRequest.productId()).orElseThrow(() -> new ResourceNotFoundException("Productnot found with id: " + cartItemRequest.productId()));
         CartItem cartItem = new CartItem();
         cartItem.setProduct(product);
         cartItem.setQuantity(cartItemRequest.quantity());
