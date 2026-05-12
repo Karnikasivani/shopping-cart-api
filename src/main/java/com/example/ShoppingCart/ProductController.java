@@ -36,4 +36,19 @@ public class ProductController {
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<Product>> searchByName(@RequestParam String keyword) {
+        return ResponseEntity.ok(productService.searchByName(keyword));
+    }
+
+    @GetMapping("/cheap")
+    public ResponseEntity<List<Product>> findPriceLessThan(@RequestParam Double price) {
+        return ResponseEntity.ok(productService.findPriceLessThan(price));
+    }
+
+    @GetMapping("/outofstock")
+    public ResponseEntity<List<Product>> findOutOfStock() {
+        return ResponseEntity.ok(productService.findOutOfStock());
+    }
 }

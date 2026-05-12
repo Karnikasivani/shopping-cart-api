@@ -7,4 +7,10 @@ public interface ProductService {
     List<Product> getAllProducts();
     Product getProductById(Long id);
     void deleteProduct(Long id);
+
+    List<Product> searchByName(String keyword);
+
+    List<Product> findPriceLessThan(Double price);
+
+    List<Product> findOutOfStock();
 }

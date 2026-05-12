@@ -34,6 +34,21 @@ public class ProductServiceImp implements ProductService{
 
     @Override
     public void deleteProduct(Long id) {
-        productRepository.deleteById(id);
+
+    }
+
+    @Override
+    public List<Product> searchByName(String keyword) {
+        return productRepository.findByNameContaining(keyword);
+    }
+
+    @Override
+    public List<Product> findPriceLessThan(Double price) {
+        return productRepository.findByPriceLessThan(price);
+    }
+
+    @Override
+    public List<Product> findOutOfStock() {
+        return productRepository.findOutOfStock();
     }
 }
